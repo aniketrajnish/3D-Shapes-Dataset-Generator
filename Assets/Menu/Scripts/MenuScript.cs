@@ -6,6 +6,7 @@ using TMPro;
 using UnityEditor;
 using AnotherFileBrowser.Windows;
 using System.Diagnostics;
+using System.IO;
 
 public class MenuScript : MonoBehaviour
 {
@@ -32,7 +33,13 @@ public class MenuScript : MonoBehaviour
         {
             shapes.SetActive(true);
             warning.SetActive(true);
-            print("Empty!");
+            warning.GetComponent<TextMeshProUGUI>().text = "Fill required information!";
+        }
+        else if (!Directory.Exists(save_path.text))
+        {
+            shapes.SetActive(true);
+            warning.SetActive(true);
+            warning.GetComponent<TextMeshProUGUI>().text = "Directory does not exist!";
         }
         else
         {
