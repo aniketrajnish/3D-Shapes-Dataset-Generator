@@ -64,6 +64,10 @@ public class MenuScript : MonoBehaviour
     {
         shapeBatch.randomize_shape_count = !shapeBatch.randomize_shape_count;
     }
+    public void ToggleVP()
+    {
+        shapeBatch.varying_position = !shapeBatch.varying_position;
+    }
     public void ShapeToggle(int index)
     {
         RaymarchRenderer.Shape shape = (RaymarchRenderer.Shape)index;

@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 using System.IO;
 
 public class ShapeBatch : MonoBehaviour
 {
-    public int max_shapes, dataset_size;
-    int batch_size = 1;
+    public int max_shapes, dataset_size;    
     public string save_path;
     public RaymarchRenderer.Shape[] shapes;
     public List<RaymarchRenderer.Shape> exclude_shapes;
     public List<RaymarchRenderer.Operation> exclude_operations;
+    public bool randomize_shape_count, varying_angles, varying_orientation, varying_position;
+    public GameObject generate_btn;
+
     RaymarchRenderer.Operation[] operations;
     Camera _cam;
-    public bool randomize_shape_count, varying_angles, varying_orientation;
+    int batch_size = 1;    
     private void Start()
     {
         _cam = Camera.main;
@@ -43,6 +47,8 @@ public class ShapeBatch : MonoBehaviour
         string csvPath = Path.Combine(save_path, "dataset.csv");
         StreamWriter csvWriter = new StreamWriter(csvPath);
         csvWriter.WriteLine("filename,shape,operation,a,b,c,d,e,f,g,h,i,j,k,l,hue,sat,val");
+
+        generate_btn.GetComponent<Button>().enabled = false;
 
         for (int i = 0; i < dataset_size; i += batch_size)
         {
@@ -83,6 +89,13 @@ public class ShapeBatch : MonoBehaviour
                 if (varying_orientation)
                     go.transform.rotation = Random.rotation;
 
+                if (varying_position)
+                {
+                    float rand_float = Random.Range(-2.5f, 2.5f);
+                    Vector3 rand_pos = new Vector3(rand_float, rand_float, rand_float);
+                    go.transform.position = rand_pos;
+                }
+
                 /*if (varying_angles)
                     _cam.transform.position = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), Random.Range(-10f, 10f));*/
 
@@ -108,6 +121,10 @@ public class ShapeBatch : MonoBehaviour
                 Destroy(go);
             }
 
+            int progress_percent = (int)((float)i / dataset_size * 100);
+            string progress_display = (progress_percent + 1).ToString() + " %";
+            generate_btn.GetComponentInChildren<TextMeshProUGUI>().text = progress_display;
+
             file_names.Add("shape_" + i + out_name + ".png");
             yield return StartCoroutine(SaveTexturesToFile(rt, save_path, file_names));
             RenderTexture.ReleaseTemporary(rt);
@@ -115,6 +132,9 @@ public class ShapeBatch : MonoBehaviour
         }
 
         csvWriter.Close();
+        generate_btn.GetComponentInChildren<TextMeshProUGUI>().text = "Generated!";
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     vector12 GetRandomDimensions(RaymarchRenderer.Shape shape)
     {
