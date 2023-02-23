@@ -10,7 +10,7 @@ using System.Diagnostics;
 public class MenuScript : MonoBehaviour
 {
     RaymarchRenderer[] rrs;
-    [SerializeField] GameObject shapes;
+    [SerializeField] GameObject shapes, warning;
     [SerializeField] ShapeBatch shapeBatch;
     [SerializeField] TMP_InputField max_shapes, dataset_size, save_path;
     void Start()
@@ -28,19 +28,27 @@ public class MenuScript : MonoBehaviour
     }
     public void Generate()
     {
-       shapeBatch.max_shapes = int.Parse(max_shapes.text);
-       shapeBatch.dataset_size = int.Parse(dataset_size.text);
-       shapeBatch.save_path = save_path.text;
+        if (string.IsNullOrEmpty(max_shapes.text) || string.IsNullOrEmpty(dataset_size.text) || string.IsNullOrEmpty(save_path.text) || string.IsNullOrWhiteSpace(save_path.text))
+        {
+            shapes.SetActive(true);
+            warning.SetActive(true);
+            print("Empty!");
+        }
+        else
+        {
+            shapeBatch.max_shapes = int.Parse(max_shapes.text);
+            shapeBatch.dataset_size = int.Parse(dataset_size.text);
+            shapeBatch.save_path = save_path.text;
 
-       shapes.SetActive(false);
+            shapes.SetActive(false);
+            warning.SetActive(false);
 
-       Process.Start("explorer.exe", save_path.text);
-       StartCoroutine(shapeBatch.RenderShapes());
+            Process.Start("explorer.exe", save_path.text);
+            StartCoroutine(shapeBatch.RenderShapes());
+        }
     }
     public void OpenFileBrowser()
-    {/*
-        string directory = EditorUtility.OpenFolderPanel("Select Directory", "", "");
-        save_path.text = directory;*/
+    {
         var bp = new BrowserProperties();
         bp.title = "Choose Path";
         new FileBrowser().OpenFolderBrowser(bp, path =>
