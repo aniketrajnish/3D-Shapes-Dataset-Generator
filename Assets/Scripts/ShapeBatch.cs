@@ -44,6 +44,11 @@ public class ShapeBatch : MonoBehaviour
 
     public IEnumerator RenderShapes()
     {
+        string folderName = "dataset_" + System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        save_path = Path.Combine(save_path, folderName);
+        Directory.CreateDirectory(save_path);
+        System.Diagnostics.Process.Start("explorer.exe", save_path);
+
         string csvPath = Path.Combine(save_path, "dataset.csv");
         StreamWriter csvWriter = new StreamWriter(csvPath);
         csvWriter.WriteLine("filename,shape,operation,a,b,c,d,e,f,g,h,i,j,k,l,hue,sat,val");
@@ -352,6 +357,7 @@ public class ShapeBatch : MonoBehaviour
     }
     private IEnumerator SaveTexturesToFile(RenderTexture rt, string savePath, List<string> fileNames)
     {
+
         for (int i = 0; i < fileNames.Count; i++)
         {
             Texture2D texture = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false);
@@ -361,7 +367,8 @@ public class ShapeBatch : MonoBehaviour
             RenderTexture.active = null;
 
             byte[] bytes = texture.EncodeToPNG();
-            string filePath = System.IO.Path.Combine(savePath, fileNames[i]);
+
+            string filePath = System.IO.Path.Combine(save_path, fileNames[i]);
             File.WriteAllBytes(filePath, bytes);
 
             Destroy(texture);

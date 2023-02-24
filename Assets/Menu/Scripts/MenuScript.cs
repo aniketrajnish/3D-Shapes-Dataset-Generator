@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEditor;
 using AnotherFileBrowser.Windows;
-using System.Diagnostics;
 using System.IO;
 
 public class MenuScript : MonoBehaviour
@@ -52,7 +51,6 @@ public class MenuScript : MonoBehaviour
             shapes.SetActive(false);
             warning.SetActive(false);
 
-            Process.Start("explorer.exe", save_path.text);
             StartCoroutine(shapeBatch.RenderShapes());
         }
     }
