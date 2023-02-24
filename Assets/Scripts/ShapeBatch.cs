@@ -8,7 +8,7 @@ using System.IO;
 
 public class ShapeBatch : MonoBehaviour
 {
-    public int max_shapes, dataset_size;    
+    public int max_shapes, dataset_size, resolution_x, resolution_y;    
     public string save_path;
     public RaymarchRenderer.Shape[] shapes;
     public List<RaymarchRenderer.Shape> exclude_shapes;
@@ -63,7 +63,7 @@ public class ShapeBatch : MonoBehaviour
 
             operations = (RaymarchRenderer.Operation[])System.Enum.GetValues(typeof(RaymarchRenderer.Operation));
 
-            RenderTexture rt = RenderTexture.GetTemporary(256, 256, 24);
+            RenderTexture rt = RenderTexture.GetTemporary(resolution_x, resolution_y, 24);
             List<string> file_names = new List<string>();
 
             string out_name = "";
@@ -91,7 +91,7 @@ public class ShapeBatch : MonoBehaviour
 
                 if (varying_position)
                 {
-                    float rand_float = Random.Range(-2.5f, 2.5f);
+                    float rand_float = Random.Range(-1f, 1f);
                     Vector3 rand_pos = new Vector3(rand_float, rand_float, rand_float);
                     go.transform.position = rand_pos;
                 }
@@ -121,8 +121,9 @@ public class ShapeBatch : MonoBehaviour
                 Destroy(go);
             }
 
-            int progress_percent = (int)((float)i / dataset_size * 100);
-            string progress_display = (progress_percent + 1).ToString() + " %";
+            float progress_percent_float = (float)i / dataset_size * 100;
+            int progress_percent = (int)System.Math.Round(progress_percent_float, System.MidpointRounding.AwayFromZero);
+            string progress_display = progress_percent.ToString() + " %";
             generate_btn.GetComponentInChildren<TextMeshProUGUI>().text = progress_display;
 
             file_names.Add("shape_" + i + out_name + ".png");
