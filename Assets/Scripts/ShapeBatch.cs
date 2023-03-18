@@ -87,7 +87,7 @@ public class ShapeBatch : MonoBehaviour
                 while (exclude_operations.Contains(operation));
 
                 //shape = shapes[0];
-                //RaymarchRenderer.Operation operation = operations[0];
+                
 
                 GameObject go = new GameObject();
 
@@ -112,7 +112,7 @@ public class ShapeBatch : MonoBehaviour
                 vector12 dimensions = GetRandomDimensions(shape);
                 go.GetComponent<RaymarchRenderer>().SetDimensionArray(shape, dimensions);
 
-                Color col = Random.ColorHSV(0, 1);
+                Color col = Random.ColorHSV(0, 1, 1, 1, 1, 1);
                 go.GetComponent<RaymarchRenderer>().color = col;
                 Color.RGBToHSV(col, out float H, out float S, out float V);                
 
