@@ -8,12 +8,12 @@ using System.IO;
 
 public class ShapeBatch : MonoBehaviour
 {
-    public int max_shapes, dataset_size, resolution_x, resolution_y;    
+    public int max_shapes, dataset_size, resolution_x, resolution_y, seed;    
     public string save_path;
     public RaymarchRenderer.Shape[] shapes;
     public List<RaymarchRenderer.Shape> exclude_shapes;
     public List<RaymarchRenderer.Operation> exclude_operations;
-    public bool randomize_shape_count, varying_angles, varying_orientation, varying_position;
+    public bool randomize_shape_count, varying_angles, varying_orientation, varying_position, should_seed;
     public GameObject generate_btn;
 
     RaymarchRenderer.Operation[] operations;
@@ -44,10 +44,20 @@ public class ShapeBatch : MonoBehaviour
 
     public IEnumerator RenderShapes()
     {
+        if (!should_seed)
+            seed = Random.Range(1,9999999);
+
+        Random.InitState(seed);        
+
         string folderName = "dataset_" + System.DateTime.Now.ToString("yyyyMMdd_HHmmss");
         save_path = Path.Combine(save_path, folderName);
         Directory.CreateDirectory(save_path);
         System.Diagnostics.Process.Start("explorer.exe", save_path);
+
+        string randomValuesPath = Path.Combine(save_path, "random_seed.txt");
+        StreamWriter randomValuesWriter = new StreamWriter(randomValuesPath);
+        randomValuesWriter.WriteLine("Seed: " + seed);
+        randomValuesWriter.Close();
 
         string csvPath = Path.Combine(save_path, "dataset.csv");
         StreamWriter csvWriter = new StreamWriter(csvPath);
@@ -84,10 +94,7 @@ public class ShapeBatch : MonoBehaviour
                 
                 do
                     operation = operations[Random.Range(0, operations.Length)];
-                while (exclude_operations.Contains(operation));
-
-                //shape = shapes[0];
-                
+                while (exclude_operations.Contains(operation));                
 
                 GameObject go = new GameObject();
 
@@ -375,5 +382,4 @@ public class ShapeBatch : MonoBehaviour
             yield return null;
         }
     }
-
 }

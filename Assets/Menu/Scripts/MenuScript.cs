@@ -12,7 +12,7 @@ public class MenuScript : MonoBehaviour
     RaymarchRenderer[] rrs;
     [SerializeField] GameObject shapes, warning;
     [SerializeField] ShapeBatch shapeBatch;
-    [SerializeField] TMP_InputField max_shapes, dataset_size, save_path, resolution_x, resolution_y;
+    [SerializeField] TMP_InputField max_shapes, dataset_size, save_path, resolution_x, resolution_y, seed;
     void Start()
     {
         rrs = GetComponentsInChildren<RaymarchRenderer>();
@@ -47,6 +47,12 @@ public class MenuScript : MonoBehaviour
             shapeBatch.max_shapes = int.Parse(max_shapes.text);
             shapeBatch.dataset_size = int.Parse(dataset_size.text);
             shapeBatch.save_path = save_path.text;
+
+            if (!string.IsNullOrEmpty(seed.text) && !string.IsNullOrWhiteSpace(seed.text))
+            {
+                shapeBatch.should_seed = true;
+                shapeBatch.seed = int.Parse(seed.text);
+            }
 
             shapes.SetActive(false);
             warning.SetActive(false);
