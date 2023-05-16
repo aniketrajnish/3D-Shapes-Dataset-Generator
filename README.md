@@ -39,6 +39,7 @@ Note that the `Varying Camera Angle` parameter is still under development and ma
 re-generate a dataset.
 * These parameters are exported in the CSV sheet with all the image information as shown in table below.
 
+<div align = center>
 | Column Name  | Info |
 | ------------- | ------------- |
 | filename  | Name of the image file  |
@@ -46,7 +47,9 @@ re-generate a dataset.
 | operation  | Operation Index |
 | a,b,c,d,e,f,g,h,i,j,k,l  | Dimensional parameters |
 | hue, sat, val  | HSV Values of the color |
-
+| rot_x, rot_y, rot_z  | Euler Angles |
+| pos_x, pos_y, pos_z | Position Vector |
+</div>
 
 ## Contributing
 
