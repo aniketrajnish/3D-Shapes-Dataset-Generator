@@ -38,22 +38,11 @@ Note that the `Varying Camera Angle` parameter is still under development and ma
 * The seed value of each random state is also exported in a txt file and can be used to
 re-generate a dataset.
 * These parameters are exported in the CSV sheet with all the image information as shown in table below.
-| Column Name | Info                                      |
-|-------------|-------------------------------------------|
-| filename    | Name of the image file                     |
-| shape       | Shape Index                                |
-| operation   | Operation Index                            |
-| a,b,c,d,e,f | Dimensional parameters                      |
-| g,h,i,j,k,l |                                             |
-| hue         | HSV value of the color (Hue)                |
-| sat         | HSV value of the color (Saturation)         |
-| val         | HSV value of the color (Value/Brightness)   |
-| rot_x       | Euler angle for rotation along x-axis       |
-| rot_y       | Euler angle for rotation along y-axis       |
-| rot_z       | Euler angle for rotation along z-axis       |
-| pos_x       | Position vector along x-axis                |
-| pos_y       | Position vector along y-axis                |
-| pos_z       | Position vector along z-axis                |
+
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 
 
 
