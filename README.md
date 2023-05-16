@@ -39,11 +39,13 @@ Note that the `Varying Camera Angle` parameter is still under development and ma
 re-generate a dataset.
 * These parameters are exported in the CSV sheet with all the image information as shown in table below.
 
-| First Header  | Second Header |
+| Column Name  | Info |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
-
+| filename  | Name of the image file  |
+| shape  | Shape Index  |
+| operation  | Operation Index |
+| a,b,c,d,e,f,g,h,i,j,k,l  | Dimensional parameters |
+| hue, sat, val  | HSV Values of the color |
 
 
 ## Contributing
