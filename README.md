@@ -31,7 +31,7 @@ https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/672
 * `Shapes and Operations`: These are enums that determine which shape index and operation index are to be taken into * consideration while generating each shape.
 * `Seed`: Input a seed value to generate a dataset that has already been created before by assigning the seed value to the Random State.
 
-Note that the `Varying Camera Angle` parameter is still under development and may not be fully functional.
+Note that the `Varying Camera Angle` parameter is still under development and is not functional.
 
 ## Datasets
 * The images are saved in the `../images` folder.
