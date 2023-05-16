@@ -4,7 +4,7 @@
 <a href = "https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/releases/tag/1.0"><img width="300px" height="300px" src= "https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/c000e388-c0fa-4ebf-801d-443312fed756"></a>
 </div>
 
-This tool is designed to help users create highly-customized procedurally generated 3D shape datasets. It's build on top of my open source [Raymarching Engine](https://github.com/aniketrajnish/CS499-SDFNet/tree/main/Renderer) and runs over GPU.
+This tool is designed to help users create highly-customized procedurally generated 3D shape datasets. It's build on top of my open source [Raymarching Engine](https://github.com/aniketrajnish/CS499-SDFNet/tree/main/Renderer) and runs over GPU. The renderer supports over thirty primitives, three operations (Union, Intersection, and Subtraction), and RGB color values (along with shadows).
 
 ## Getting Started
 
@@ -32,6 +32,30 @@ https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/672
 * `Seed`: Input a seed value to generate a dataset that has already been created before by assigning the seed value to the Random State.
 
 Note that the `Varying Camera Angle` parameter is still under development and may not be fully functional.
+
+## Datasets
+* The images are saved in the `../images` folder.
+* The seed value of each random state is also exported in a txt file and can be used to
+re-generate a dataset.
+* These parameters are exported in the CSV sheet with all the image information as shown in table below.
+| Column Name | Info                                      |
+|-------------|-------------------------------------------|
+| filename    | Name of the image file                     |
+| shape       | Shape Index                                |
+| operation   | Operation Index                            |
+| a,b,c,d,e,f | Dimensional parameters                      |
+| g,h,i,j,k,l |                                             |
+| hue         | HSV value of the color (Hue)                |
+| sat         | HSV value of the color (Saturation)         |
+| val         | HSV value of the color (Value/Brightness)   |
+| rot_x       | Euler angle for rotation along x-axis       |
+| rot_y       | Euler angle for rotation along y-axis       |
+| rot_z       | Euler angle for rotation along z-axis       |
+| pos_x       | Position vector along x-axis                |
+| pos_y       | Position vector along y-axis                |
+| pos_z       | Position vector along z-axis                |
+
+
 
 ## Contributing
 
