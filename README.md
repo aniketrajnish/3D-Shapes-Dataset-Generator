@@ -49,6 +49,7 @@ re-generate a dataset.
 | rot_x, rot_y, rot_z  | Euler Angles |
 | pos_x, pos_y, pos_z | Position Vector |
 
+* Each row depicts information about a shape in the image of a dataset.
 
 ## Contributing
 
