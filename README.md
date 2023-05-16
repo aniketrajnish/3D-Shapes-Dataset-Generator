@@ -7,6 +7,8 @@
 ## About
 This tool is designed to help users create highly-customized procedurally generated 3D shape datasets. It's build on top of our open source [Raymarching Engine](https://github.com/aniketrajnish/CS499-SDFNet/tree/main/Renderer) and runs over GPU.
 
+https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/6720667f-323b-406e-af8d-4fbeced10188
+
 ## Getting Started
 
 * Download the build file/windows installer from the [Releases](https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/releases/tag/1.0).
@@ -21,7 +23,7 @@ This tool is designed to help users create highly-customized procedurally genera
 
 ## Contributing
 
-If you find a bug or have a feature request, please open an issue or submit a pull request. We welcome contributions from the community.
+If you find a bug or have a feature request, please open an issue or submit a pull request.
 
 ## License
 
