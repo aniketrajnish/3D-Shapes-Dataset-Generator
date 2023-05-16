@@ -14,7 +14,7 @@ This tool is designed to help users create highly-customized procedurally genera
        ```
        git clone https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator.git
        ```
-    *  Edit the source file in `Unity 2020.3.30f1` or later.
+    *  Edit the source code in `Unity 2020.3.30f1` or later.
 
 https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/6720667f-323b-406e-af8d-4fbeced10188
 
