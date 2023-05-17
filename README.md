@@ -20,7 +20,7 @@ https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/b56
 
 ## Usage
 
-* `Varying Camera Angle` (under development): Set to `True` if you want to assign a different camera angle to each image in the dataset. Otherwise, the camera will look at the object keeping it in the center using `transform.LookAt()`.
+* `Varying Camera Angle` (currently not functional): Set to `True` if you want to assign a different camera angle to each image in the dataset. Otherwise, the camera will look at the object keeping it in the center using `transform.LookAt()`.
 * `Varying Orientation`: Set to `True` if you want to assign a unique random orientation (angle) to the individual shapes in the dataset. Otherwise, the shapes will be aligned with the axis using `Quaternion.identity`.
 * `Varying Position`: Set to `True` if you want to assign a unique random position to the individual shapes in a cube of dimension 2 units centered at the origin. Otherwise, the shapes will be centered at the origin.
 * `Randomize Shape Count`: Set to `True` if you want to randomize the number of shapes in each image between 0 and the `Max Shape Count`. Otherwise, every image will be generated with `Max Shape Count` number of shapes.
