@@ -16,7 +16,7 @@ This tool is designed to help users create procedurally generated 3D shape datas
        ```
     *  Open and edit the source code (in the `/src` folder) in `Unity 2020.3.30f1` or later. 
 
-https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/b566af65-02b8-4081-b7b4-18c6afc9d83
+https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/b6953128-a2d6-4023-b9ff-02ea1e3d8935
 
 ## Usage
 
