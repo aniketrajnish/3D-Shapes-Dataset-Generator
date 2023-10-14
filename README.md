@@ -6,6 +6,15 @@
 
 This tool is designed to help users create procedurally generated 3D shape datasets customized to their needs. It's built on top of my open source [Raymarching Engine](https://github.com/aniketrajnish/CS499-SDFNet/tree/main/Renderer) and runs over GPU. The engine supports over thirty primitives, three operations (Union, Intersection, and Subtraction), and varying color values (along with shadows).
 
+<p align="center">
+  <img src="https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/7040fba3-bc98-4d94-ad1c-c1d2450445c9" width="50%" alt="3"><br>
+  A glimpse of the Final Dataset
+</p>
+<p align="center">
+  <img src="https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/cb84368f-5632-4349-bc10-cec1f3213fd8" width="50%" alt="op"><br>
+  Sample image with operations: Cone (Union) + Sphere (Union) + Box Frame (Subtraction)
+</p>
+
 ## Getting Started
 
 * Download the build file/windows installer from the [Releases](https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/releases/tag/1.0).
