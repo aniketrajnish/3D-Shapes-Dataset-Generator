@@ -6,12 +6,12 @@
 
 This tool is designed to help users create procedurally generated 3D shape datasets customized to their needs. It's built on top of my open source [Raymarching Engine](https://github.com/aniketrajnish/CS499-SDFNet/tree/main/Renderer) and runs over GPU. The engine supports over thirty primitives, three operations (Union, Intersection, and Subtraction), and varying color values (along with shadows).
 
-<p align="center">
-  <img src="https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/7040fba3-bc98-4d94-ad1c-c1d2450445c9" width="50%" alt="3"><br>
+<p align="center">  
+  <img src="https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/4f245e7e-36d9-48ca-a34f-abc9d5d1d6be" width="50%" alt="3" style="border: 10px solid black; border-radius: 100px;"><br>
   A glimpse of the Final Dataset
 </p>
 <p align="center">
-  <img src="https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/cb84368f-5632-4349-bc10-cec1f3213fd8" width="50%" alt="op"><br>
+  <img src="https://github.com/aniketrajnish/3D-Shapes-Dataset-Generator/assets/58925008/3817574b-e8a2-43fa-a694-9f42faa3d324" width="50%" alt="op" style="border: 10px solid black; border-radius: 100px;"><br>
   Sample image with operations: Cone (Union) + Sphere (Union) + Box Frame (Subtraction)
 </p>
 
