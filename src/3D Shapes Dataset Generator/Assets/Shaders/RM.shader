@@ -17,7 +17,7 @@ Shader "Makra/ImageEffectRaymarcher"
             #pragma target 3.0
 
             #include"UnityCG.cginc"
-            #include"Include/Functions.cginc"
+            #include"Functions.cginc"
 
             #define max_steps 225
             #define max_dist 1000
